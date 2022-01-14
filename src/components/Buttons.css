@@ -1,0 +1,14 @@
+.Numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 20%;
+    margin: auto;
+    row-gap: 10px;
+    column-gap: 10px;
+    padding-top: 10px;
+}
+
+.Numbers div button {
+    width: 100%;
+    font-size: large;
+}
