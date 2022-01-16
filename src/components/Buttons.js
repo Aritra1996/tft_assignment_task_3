@@ -1,24 +1,38 @@
+import React from 'react'
 import './Buttons.css'
 
-export function Buttons() {
-    return(
-        <div className="Numbers">
-            <div><button>9</button></div>
-            <div><button>8</button></div>
-            <div><button>7</button></div>
-            <div><button>6</button></div>
-            <div><button>5</button></div>
-            <div><button>4</button></div>
-            <div><button>3</button></div>
-            <div><button>2</button></div>
-            <div><button>1</button></div>
-            <div><button>0</button></div>
-            <div><button>+</button></div>
-            <div><button>-</button></div>
-            <div><button>x</button></div>
-            <div><button>/</button></div>
-            <div><button>CE</button></div>
-            <div><button>=</button></div>
-        </div>
-    )
+export class Buttons extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+
+    }
+
+    handleClick(e) {
+        this.props.handleClick(e.target.value);
+    }
+
+    render() {
+        return(
+            <div className="Numbers">
+                <div><input type='button' value='9' onClick={this.handleClick}/></div>
+                <div><input type='button' value='8' onClick={this.handleClick}/></div>
+                <div><input type='button' value='7' onClick={this.handleClick}/></div>
+                <div><input type='button' value='6' onClick={this.handleClick}/></div>
+                <div><input type='button' value='5' onClick={this.handleClick}/></div>
+                <div><input type='button' value='4' onClick={this.handleClick}/></div>
+                <div><input type='button' value='3' onClick={this.handleClick}/></div>
+                <div><input type='button' value='2' onClick={this.handleClick}/></div>
+                <div><input type='button' value='1' onClick={this.handleClick}/></div>
+                <div><input type='button' value='0' onClick={this.handleClick}/></div>
+                <div><input type='button' value='+' onClick={this.handleClick}/></div>
+                <div><input type='button' value='-' onClick={this.handleClick}/></div>
+                <div><input type='button' value='*' onClick={this.handleClick}/></div>
+                <div><input type='button' value='/' onClick={this.handleClick}/></div>
+                <div><input type='button' value='CE' onClick={this.handleClick}/></div>
+                <div><input type='button' value='=' onClick={this.handleClick}/></div>
+            </div>
+        );
+    }
 } 

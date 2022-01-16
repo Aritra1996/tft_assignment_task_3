@@ -6,4 +6,6 @@
 .InputArea input {
     width: 100%;
     font-size: large;
+    text-align: right;
+    margin-right: 50%;
 }
