@@ -13,13 +13,14 @@ class App extends React.Component {
   handleClick(value) {
     if(value==='=') {
       try { 
-        this.setState({value: eval(this.state.value), newStart: true})
+        let result = Function("return " + this.state.value)
+        this.setState({value: Function("return " + this.state.value)(), newStart: true})
       } catch(e) {
+        console.log(e)
         if(e instanceof SyntaxError) {
           alert('Invalid expression')
         } else {
           alert('Error occured')
-          console.log(e)
         }
       }
       
