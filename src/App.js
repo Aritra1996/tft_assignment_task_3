@@ -14,7 +14,7 @@ class App extends React.Component {
     if(value==='=') {
       try { 
         let expression = "return " + this.state.value
-        this.setState({value: Function(expression)(), newStart: true})
+        this.setState({value: Function(expression)(), newStart: true, operatorAtLast: false})
       } catch(e) {
         console.log(e)
         if(e instanceof SyntaxError) {
@@ -34,9 +34,22 @@ class App extends React.Component {
       }
     } else {
       if(this.state.newStart) {
-        this.setState({ value: value, newStart: false})
+        if(value==='+'||value==='-'||value==='*'||value==='/') {
+          this.setState({value: this.state.value + value, newStart: false, operatorAtLast: true});
+        } else {
+          this.setState({ value: value, newStart: false})
+        }
       } else {
-        this.setState({value: this.state.value + value});
+        if(value==='+'||value==='-'||value==='*'||value==='/') {
+          if(this.state.operatorAtLast) {
+            let newValue = this.state.value.substring(0, this.state.value.length-1) + value
+            this.setState({value: newValue, operatorAtLast: true});
+          } else {
+            this.setState({value: this.state.value + value, operatorAtLast: true});
+          }
+        } else {
+          this.setState({value: this.state.value + value, operatorAtLast: false});
+        }
       }
     }
   }
