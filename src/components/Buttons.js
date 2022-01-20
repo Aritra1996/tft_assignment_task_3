@@ -53,25 +53,35 @@ export class Buttons extends React.Component {
     }
 
     render() {
-        // let operators = ['+', '-', '*', '/']
-        // let operands = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-        // let operations = ['CE', '=']
 
-        let buttons = [['+', '-', '*', '/'],
-                        ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-                        ['CE', '=']]
+        let buttons = [['+', 'handleOperators'],
+                        ['-', 'handleOperators'],
+                        ['*', 'handleOperators'],
+                        ['/', 'handleOperators'],
+                        ['0', 'handleOperands'],
+                        ['1', 'handleOperands'],
+                        ['2', 'handleOperands'],
+                        ['3', 'handleOperands'],
+                        ['4', 'handleOperands'],
+                        ['5', 'handleOperands'],
+                        ['6', 'handleOperands'],
+                        ['7', 'handleOperands'],
+                        ['8', 'handleOperands'],
+                        ['9', 'handleOperands'],
+                        ['CE', 'handleOperations'],
+                        ['=', 'handleOperations']]
 
-        let items = buttons[0].map((operator) =>
-            <div key={operator}><input type='button' value={operator} onClick={this.handleOperators}/></div>
-        )
-
-        items = items.concat(buttons[1].map((operand) =>
-            <div key={operand}><input type='button' value={operand} onClick={this.handleOperands}/></div>
-        ))
-
-        items = items.concat(buttons[2].map((operation) =>
-            <div key={operation}><input type='button' value={operation} onClick={this.handleOperations}/></div>
-        ))
+        let items = buttons.map((button) => {
+            if(button[1]==='handleOperators') {
+                return <div key={button[0]}><input type='button' value={button[0]} onClick={this.handleOperators}/></div>
+            } else if(button[1]==='handleOperands') {
+                return <div key={button[0]}><input type='button' value={button[0]} onClick={this.handleOperands}/></div>
+            } else if(button[1]==='handleOperations') {
+                return <div key={button[0]}><input type='button' value={button[0]} onClick={this.handleOperations}/></div>
+            } else {
+                alert('Data error, we will look into this')
+            }
+        })
         
         return(
             <div className="Numbers">
