@@ -22,7 +22,10 @@ export class Buttons extends React.Component {
     }
 
     handleOperators(e) {
-        if(this.state.lastEval || this.props.exp==='') {
+        if( this.state.lastEval) {
+            this.props.handleClick(this.props.exp + e.target.value)
+        }
+        else if(this.props.exp==='') {
            if(e.target.value==='+' || e.target.value==='-') {
             this.props.handleClick(e.target.value)
            }
