@@ -53,19 +53,24 @@ export class Buttons extends React.Component {
     }
 
     render() {
-        let operators = ['+', '-', '*', '/']
-        let operands = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-        let operations = ['CE', '=']
+        // let operators = ['+', '-', '*', '/']
+        // let operands = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        // let operations = ['CE', '=']
 
-        let items = operators.map((operator) =>
+        let buttons = [['+', '-', '*', '/'],
+                        ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+                        ['CE', '=']]
+
+        console.log(buttons[0])
+        let items = buttons[0].map((operator) =>
             <div key={operator}><input type='button' value={operator} onClick={this.handleOperators}/></div>
         )
 
-        items = items.concat(operands.map((operand) =>
+        items = items.concat(buttons[1].map((operand) =>
             <div key={operand}><input type='button' value={operand} onClick={this.handleOperands}/></div>
         ))
 
-        items = items.concat(operations.map((operation) =>
+        items = items.concat(buttons[2].map((operation) =>
             <div key={operation}><input type='button' value={operation} onClick={this.handleOperations}/></div>
         ))
         
