@@ -72,15 +72,17 @@ export class Buttons extends React.Component {
                         ['=', 'handleOperations']]
 
         let items = buttons.map((button) => {
-            if(button[1]==='handleOperators') {
-                return <div key={button[0]}><input type='button' value={button[0]} onClick={this.handleOperators}/></div>
-            } else if(button[1]==='handleOperands') {
-                return <div key={button[0]}><input type='button' value={button[0]} onClick={this.handleOperands}/></div>
-            } else if(button[1]==='handleOperations') {
-                return <div key={button[0]}><input type='button' value={button[0]} onClick={this.handleOperations}/></div>
-            } else {
-                alert('Data error, we will look into this')
-            }
+            return <div key={button[0]}><input type='button' value={button[0]} onClick={eval("this."+button[1])}/></div>
+            // console.log(Buttons["handleOperations"](arguments))
+            // if(button[1]==='handleOperators') {
+            //     return <div key={button[0]}><input type='button' value={button[0]} onClick={eval("this."+button[1])}/></div>
+            // } else if(button[1]==='handleOperands') {
+            //     return <div key={button[0]}><input type='button' value={button[0]} onClick={this.handleOperands}/></div>
+            // } else if(button[1]==='handleOperations') {
+            //     return <div key={button[0]}><input type='button' value={button[0]} onClick={this.handleOperations}/></div>
+            // } else {
+            //     alert('Data error, we will look into this')
+            // }
         })
         
         return(
