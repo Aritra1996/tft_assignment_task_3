@@ -76,7 +76,7 @@ export class Buttons extends React.Component {
                 return <div key={button[0]}><input type='button' value={button[0]} onClick={eval("this."+button[1])}/></div>
             } catch(e) {
                 console.log(e)
-                alert('Oops ! error, we will look into this')
+                // alert('Oops ! error, we will look into this')
             }
             // console.log(Buttons["handleOperations"](arguments))
             // if(button[1]==='handleOperators') {
